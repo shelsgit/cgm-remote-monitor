@@ -1,27 +1,23 @@
-﻿<!DOCTYPE HTML>
-<!DOCTYPE html PUBLIC "" ""><HTML><HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=utf-8"></HEAD>
-<BODY>
-<PRE>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-	&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
   
-	&lt;title&gt;Sam's BG&lt;/title&gt;
+	<title>Sam's BG</title>
   
-	&lt;link href="/images/round1.png" rel="icon" id="favicon" type="image/png" /&gt;
-	&lt;link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png"&gt;
-	&lt;link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png"&gt;
+	<link href="/images/round1.png" rel="icon" id="favicon" type="image/png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
   
-	&lt;style type="text/css"&gt;
+	<style type="text/css">
 		@import url("//fonts.googleapis.com/css?family=Open+Sans:700");
   
 		body {
@@ -74,26 +70,26 @@
 			font-size: 6vmin;
 			display: none;
 		}
-	&lt;/style&gt;
-&lt;/head&gt;
+	</style>
+</head>
 
-&lt;body&gt;
+<body>
 
-	&lt;main&gt;
-		&lt;div class="inner"&gt;
-			&lt;div id="bgnow"&gt;&lt;/div&gt;
-			&lt;div id="trend"&gt;
-				&lt;div id="arrowDiv"&gt;&lt;img id="arrow" src=""/&gt;&lt;/div&gt;
-				&lt;div id="staleTime"&gt;&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/main&gt;
+	<main>
+		<div class="inner">
+			<div id="bgnow"></div>
+			<div id="trend">
+				<div id="arrowDiv"><img id="arrow" src=""/></div>
+				<div id="staleTime"></div>
+			</div>
+		</div>
+	</main>
   
-	&lt;script src="/bower_components/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
-	&lt;script src="/api/v1/status.js"&gt;&lt;/script&gt;
-	&lt;script src="/public/js/bundle.js"&gt;&lt;/script&gt;
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/api/v1/status.js"></script>
+	<script src="/public/js/bundle.js"></script>
   
-	&lt;script type="text/javascript"&gt;
+	<script type="text/javascript">
 	
 		function query ( ) {
 			console.log('query');
@@ -142,19 +138,19 @@
 			$('#staleTime').text(elapsedMins+' minutes ago');
 
 			// Threshold background coloring.
-			if (bgNum &lt; bgLow) {
+			if (bgNum < bgLow) {
 				$('body').css('background-color', red);
 			}
-			if ((bgLow &lt;= bgNum) &amp;&amp; (bgNum &lt; bgTargetBottom)) {
+			if ((bgLow <= bgNum) && (bgNum < bgTargetBottom)) {
 				$('body').css('background-color', blue);
 			}
-			if ((bgTargetBottom &lt;= bgNum) &amp;&amp; (bgNum &lt; bgTargetTop)) {
+			if ((bgTargetBottom <= bgNum) && (bgNum < bgTargetTop)) {
 				$('body').css('background-color', green);
 			}
-			if ((bgTargetTop &lt;= bgNum) &amp;&amp; (bgNum &lt; bgHigh)) {
+			if ((bgTargetTop <= bgNum) && (bgNum < bgHigh)) {
 				$('body').css('background-color', yellow);
 			}
-			if (bgNum &gt;= bgHigh) {
+			if (bgNum >= bgHigh) {
 				$('body').css('background-color', red);
 			}
 			
@@ -163,7 +159,7 @@
 			var threshold = 1000 * 60 * staleMinutes;			
 			
 			// Restyle body bg, and make the "x mins ago" visible too.
-			if (now - last &gt; threshold) {
+			if (now - last > threshold) {
 				$('body').css('background-color', 'grey');
 				$('body').css('color', 'black');
 				$('#staleTime').css('display', 'block');
@@ -180,6 +176,6 @@
 		}
 
 		init( );
-	&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</PRE></BODY></HTML>
+	</script>
+</body>
+</html>
